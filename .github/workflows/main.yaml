@@ -23,8 +23,8 @@ jobs:
           cd /home/runner
           mkdir tmp
           cd tmp
-          git clone https://github.com/SukiSU-Ultra/SukiSU-Ultra.git -b main
-          cd SukiSU-Ultra
+          git clone https://github.com/KernelSU-Next/KernelSU-Next.git -b next
+          cd KernelSU-Next
           KSU_VER=$(expr 10000 + $(git rev-list --count HEAD) + 200)
           LOCAL_VER="${{ vars.KSU_LOCAL_VER }}"
           if [ -z "$LOCAL_VER" ]; then LOCAL_VER=0; fi
@@ -55,7 +55,7 @@ jobs:
       - name: Patch kernel source
         run: |
           cd /home/runner/kernel_sdm845
-          curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s main
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
 
       - name: Build
         run: |
