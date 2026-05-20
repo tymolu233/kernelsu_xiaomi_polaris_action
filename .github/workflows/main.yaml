@@ -23,7 +23,7 @@ jobs:
           cd /home/runner
           mkdir tmp
           cd tmp
-          git clone https://github.com/KernelSU-Next/KernelSU-Next.git -b next
+          git clone https://github.com/KernelSU-Next/KernelSU-Next.git -b legacy
           cd KernelSU-Next
           KSU_VER=$(expr 10000 + $(git rev-list --count HEAD) + 200)
           LOCAL_VER="${{ vars.KSU_LOCAL_VER }}"
@@ -55,7 +55,7 @@ jobs:
       - name: Patch kernel source
         run: |
           cd /home/runner/kernel_sdm845
-          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s next
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/legacy/kernel/setup.sh" | bash -s legacy
 
       - name: Build
         run: |
